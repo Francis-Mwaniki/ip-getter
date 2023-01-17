@@ -15,4 +15,4 @@ def home(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     
-    return Response(f'Your Ip is .'(format(ip)))
+    return Response(format(ip))
