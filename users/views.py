@@ -24,10 +24,11 @@ class Login(APIView):
         
         user=CustomUser.objects.filter(email=email).first()
         
+        
         if user is None:
             raise AuthenticationFailed('User is not found')
-        if not user.check_password(password):
+        if user.password != password:
             raise AuthenticationFailed('Incorrect Password')
         
-        return Response(user)
+        return Response({'message':"Logged in"})
            
